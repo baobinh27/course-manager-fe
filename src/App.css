@@ -1,0 +1,121 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  background-color: #eef7ee;
+  background-blend-mode:multiply;
+  background-size: 33vw;
+  background-image: url("./assets/bg-pattern.avif");
+}
+
+.h1 {
+  font-size: 2vw;
+  font-weight: bold;
+}
+
+.h2 {
+  font-size: 1.75vw;
+  font-weight: bold;
+}
+
+.h3 {
+  font-size: 1.5vw;
+  font-weight: bold;
+}
+
+.h4 {
+  font-size: 1.25vw;
+}
+
+.h5 {
+  font-size: 1vw;
+  font-weight: normal;
+}
+
+.h6 {
+  font-size: 0.85vw;
+  font-weight: normal;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+img {
+  display: block;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link:link {
+  color: black;
+}
+
+.link:visited {
+  color: black;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.multiline-truncate {
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;       /* Số dòng muốn hiển thị */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
