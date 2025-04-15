@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { FaArrowLeft, FaExclamationCircle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import styles from './Login.module.css';
+import { useAuth } from '../api/auth';
+
 
 const Login = () => {
     const [formData, setFormData] = useState({
         username: '',
         password: ''
     });
+    const { login } = useAuth();
     const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [loginButtonState, setLoginButtonState] = useState(0);
@@ -49,10 +52,9 @@ const Login = () => {
             const data = await response.json();
 
             if (response.ok) {
+                login(data.token); // Lưu thông tin đăng nhập dưới dạng token
                 setLoginButtonState(2);
-                localStorage.setItem('token', data.token);
                 setTimeout(() => {navigate('/')}, 1000)
-                            
             } else {
                 setLoginButtonState(0);
                 setError(data.message || 'Login failed. Please try again.');
