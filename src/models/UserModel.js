@@ -9,14 +9,16 @@ const UserSchema = new Schema({
   ownedCourses: [
       {
         courseId: { type: Schema.Types.ObjectId, ref: 'Course' },
-        progress: Number, // số video đã hoàn thành
-        lastWatchedVideo: String, // videoId cuối cùng xem
-        completedVideos: [String], // danh sách videoId đã hoàn thành
+        completedVideos: [String], // chứa danh sách videoId đã học
         enrolledAt: { type: Date, default: Date.now }
       }
     ],
   createdCourses: [{ type: Schema.Types.ObjectId, ref: 'Course' }],
   cart: Array,
 });
+
+UserSchema.statics.findByUserId = function (userId) {
+  return this.findOne({ _id: userId });
+};
 
 module.exports = mongoose.model("user", UserSchema, "Users");

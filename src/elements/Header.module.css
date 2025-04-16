@@ -93,7 +93,7 @@
     position: relative;
 }
 
-.menu-btn {
+.menu-toggle-btn {
     width: 6vw;
     margin: 1vw 0;
     height: 3.25vw;
@@ -106,7 +106,7 @@
     cursor: pointer;
 }
 
-.menu-btn:hover {
+.menu-toggle-btn:hover {
     background-color: rgb(204, 217, 204);
     color: forestgreen;
 } 
@@ -127,6 +127,23 @@
     border-bottom: 0.1vw solid gray;
     padding-bottom: 0.5vw;
     margin-bottom: 0.5vw;
+}
+
+.menu-btn {
+    width: 100%;
+    border-radius: 0.5vw;
+    padding: 0.5vw;
+    background-color: white;
+    color: black;
+    gap: 0.5vw;
+    border: 0;
+    justify-content: start;
+    cursor: pointer;
+}
+
+.menu-btn:hover {
+    background-color: forestgreen;
+    color: honeydew;
 }
 
 .logout-btn {

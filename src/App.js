@@ -12,6 +12,7 @@ import Header from "./elements/Header.js";
 import SearchResult from "./pages/SearchResult.js";
 import Learning from "./pages/Learning.js";
 import Dashboard from "./pages/admin/dashboard.js";
+import Profile from "./pages/Profile.js";
 
 function App() {
   return <>
@@ -39,6 +40,10 @@ function App() {
         </>} />
         <Route path="/learning" element={<>
           <Learning />
+        </>}/>
+        <Route path="/profile/:id" element={<>
+          <Header />
+          <Profile />
         </>}/>
         <Route path="/admin" element={<>
           <Dashboard />

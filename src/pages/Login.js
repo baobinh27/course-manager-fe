@@ -3,9 +3,12 @@ import { useNavigate, Link } from 'react-router-dom';
 import { FaArrowLeft, FaExclamationCircle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import styles from './Login.module.css';
 import { useAuth } from '../api/auth';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 
 
 const Login = () => {
+    useDocumentTitle("Đăng nhập");
+
     const [formData, setFormData] = useState({
         username: '',
         password: ''
@@ -55,6 +58,7 @@ const Login = () => {
                 login(data.token); // Lưu thông tin đăng nhập dưới dạng token
                 setLoginButtonState(2);
                 setTimeout(() => {navigate('/')}, 1000)
+                
             } else {
                 setLoginButtonState(0);
                 setError(data.message || 'Login failed. Please try again.');

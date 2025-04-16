@@ -6,6 +6,7 @@ import {FaAngleDown, FaAngleRight, FaAngleUp, FaUserCircle} from "react-icons/fa
 // import { useAuth } from "../hooks/useAuth";
 import { useAuth } from '../api/auth';
 import { FiLogOut } from "react-icons/fi";
+import { ImProfile } from "react-icons/im";
 
 function Header() {
     const [nameInput, setNameInput] = useState("");
@@ -30,7 +31,7 @@ function Header() {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-      }, []);
+    }, []);
 
     const handleToggleMenu = () => {
         setShowMenu(!showMenu);
@@ -88,7 +89,7 @@ function Header() {
         <Link to="/my-courses"><button className={`${styles["nav-btn"]} h5 bold`}>Khoá học của tôi</button></Link> 
         {user ? (
             <div className={`${styles["user-area"]} flex-row align-center`}>
-                <button ref={buttonRef} onClick={handleToggleMenu} className={`${styles["menu-btn"]} flex-row align-center`}>
+                <button ref={buttonRef} onClick={handleToggleMenu} className={`${styles["menu-toggle-btn"]} flex-row align-center`}>
                     <FaUserCircle style={{height: "1.5vw", width: "1.5vw"}}/>
                     {showMenu ? <FaAngleUp style={{height: "1vw", width: "1vw"}}/> : <FaAngleDown style={{height: "1vw", width: "1vw"}}/>}
                 </button>
@@ -97,6 +98,13 @@ function Header() {
                     <div className={styles["menu-section"]}>
                         <p className="h4 bold">{user.username}</p>
                         <p className="h7">{`ID: ${user.userId}`}</p>
+                    </div>
+
+                    <div className={styles["menu-section"]}>
+                        <button onClick={() => {handleToggleMenu(); navigate(`/profile/${user.userId}`);}} className={`${styles["menu-btn"]} h6 bold flex-row align-center`}>
+                            <ImProfile />
+                            Hồ sơ của bạn
+                        </button>
                     </div>
                     
                     <button onClick={handleLogout} className={`${styles["logout-btn"]} h6 bold flex-row align-center`}>

@@ -6,7 +6,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  const login = (token) => {
+  const login = async (token) => {    
     const decoded = jwtDecode(token);
     const userData = {
       username: decoded.username,

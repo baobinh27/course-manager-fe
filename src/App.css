@@ -121,6 +121,11 @@ img {
   flex-direction: row;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
 .justify-center {
   justify-content: center;
 }

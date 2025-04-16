@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./Register.module.css";
 import { FaArrowLeft, FaExclamationCircle,  } from 'react-icons/fa';
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 function Register() {
+    useDocumentTitle("Đăng ký");
+
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username: "",

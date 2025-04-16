@@ -1,17 +1,18 @@
-import { Link } from "react-router-dom";
 import React from "react";
 import styles from "./ItemCard.module.css";
 import TagsList from "./TagsList";
 import star from "../assets/star.png"
+import { useNavigate } from "react-router-dom";
 
 function processPrice(price) {
     if (price === undefined) return "";
     return price.toLocaleString("vi-VN") + "₫";
 }
 
-function ItemCard({course, discountedPrice}) {
-    return <Link to={`/course/${course._id}`} className={styles.link}>
-    <div className={styles.card}>
+const ItemCard = ({course, discountedPrice}) => {
+    const navigate = useNavigate();
+
+    return <div className={styles.card} onClick={() => navigate(`/course/${course._id}`)}>
         <img className={styles.img} src={course.banner} alt="" />
         <div className={styles.info}>
             <h1 className={`${styles.name} multiline-truncate`}>{course.name}</h1>
@@ -36,16 +37,10 @@ function ItemCard({course, discountedPrice}) {
                         </>)
                         }
                     </div>
-                    
                 </div>
-                
-                
             </div>
-            
         </div>
-        
     </div>
-    </Link> 
 }
 
 export default ItemCard;
